@@ -1,0 +1,34 @@
+{
+    "model": "gpt-4o",
+    "synthetic_data": {
+        "source_model": "gpt-4o",
+        "topics_file": "data/input/topics.json",
+        "essays_per_topic": 2
+    },
+    "summarization": {
+        "tasks": [
+            {
+                "type": "basic_summary",
+                "schema": "schemas/analysis_schema.json",
+                "exclude_fields": ["personal_view", "author_analysis"]
+            },
+            {
+                "type": "leaning_analysis",
+                "schema": "schemas/analysis_schema.json",
+                "exclude_fields": ["personal_view"]
+            },
+            {
+                "type": "full_analysis",
+                "schema": "schemas/analysis_schema.json",
+                "exclude_fields": []
+            }
+        ]
+    },
+    "paths": {
+        "input_folder": "data/input",
+        "synthetic_folder": "data/input/synthetic",
+        "output_folder": "data/output",
+        "labeled_data_folder": "data/labeled",
+        "processed_data_folder": "data/processed"
+    }
+}

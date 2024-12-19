@@ -1,0 +1,50 @@
+{
+  "name": "essays_topic_analysis",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "summary": {
+        "type": "string",
+        "description": "A concise summary of the main points discussed in the essays."
+      },
+      "author_analysis": {
+        "type": "array",
+        "description": "An array of analyses for each author included in the essays.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "author": {
+              "type": "string",
+              "description": "The name of the author of the essay."
+            },
+            "leaning": {
+              "type": "string",
+              "description": "The perceived leaning or viewpoint of the author regarding the topic."
+            },
+            "rating": {
+              "type": "number",
+              "description": "A numerical rating within the range of 0 to 10 reflecting how much does the authors lean in favor (0) or against (10) the topic."
+            }
+          },
+          "required": [
+            "author",
+            "leaning",
+            "rating"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "personal_view": {
+        "type": "string",
+        "description": "The model's personal view or opinion on the topic discussed in the essays."
+      }
+    },
+    "required": [
+      "summary",
+      "author_analysis",
+      "personal_view"
+    ],
+    "additionalProperties": false
+  },
+  "strict": true
+}
