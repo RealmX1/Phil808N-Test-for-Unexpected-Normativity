@@ -1,33 +1,43 @@
+> In case you have read the unpublished research attached to the end of personal statement, this is the same document. 
+> Also, the section "analysis of transformer-based LLM's limitation" is the same as the one in my doctoral proposal.
+> Code base for this can be found at [https://github.com/RealmX1/Phil808N-Test-for-Unexpected-Normativity](https://github.com/RealmX1/Phil808N-Test-for-Unexpected-Normativity)
+# Test for Unexpected Normativity in LLM
+> This is ongoing research, and the document is not yet complete.
+
+
 Index
-- [Introduction](#introduction)
-- [Analysis of transformer-based LLM's Limitation](#analysis-of-transformer-based-llms-limitation)
-  - [Intrinsic Limitation of Parametric knowledge storage](#intrinsic-limitation-of-parametric-knowledge-storage)
-    - [Recreation of training data and inference of implicit information](#recreation-of-training-data-and-inference-of-implicit-information)
-    - [Exhaustive listing of knowledge \& their confidence level](#exhaustive-listing-of-knowledge--their-confidence-level)
-    - [Modification of knowledge](#modification-of-knowledge)
-    - [Sharing knowledge](#sharing-knowledge)
-    - [Conflict in training corpora](#conflict-in-training-corpora)
-    - [Redemption: Retrieval Augmented Generation](#redemption-retrieval-augmented-generation)
-  - [Limitation of current LLM training paradigm](#limitation-of-current-llm-training-paradigm)
-    - [Issue with current LLM training paradigm](#issue-with-current-llm-training-paradigm)
-    - [Existing approaches to filter training data](#existing-approaches-to-filter-training-data)
-    - [Information Source Grounding](#information-source-grounding)
-- [Unexpected Normativity](#unexpected-normativity)
-  - [Two types of normative value enforcement](#two-types-of-normative-value-enforcement)
-  - [DPO, RLHF, and Type 2 Normative Value Enforcement](#dpo-rlhf-and-type-2-normative-value-enforcement)
-- [Experiment: Verifying Existence of Unexpected Normativity](#experiment-verifying-existence-of-unexpected-normativity)
-  - [Data Generation](#data-generation)
-  - [Summarization Generation](#summarization-generation)
-  - [Evaluation](#evaluation)
-    - [Potential result Analysis](#potential-result-analysis)
-  - [Potential Further Analysis](#potential-further-analysis)
-- [Proposal: Separation of Concern between Evaluation and Operation](#proposal-separation-of-concern-between-evaluation-and-operation)
-- [Appendix](#appendix)
-  - [Json Schema For Summarization Response Example](#json-schema-for-summarization-response-example)
-  - [Additional Question](#additional-question)
-- [Formalization of Problem: Observation based Value System deduction](#formalization-of-problem-observation-based-value-system-deduction)
+- [Test for Unexpected Normativity in LLM](#test-for-unexpected-normativity-in-llm)
+  - [Introduction](#introduction)
+  - [Analysis of transformer-based LLM's Limitation](#analysis-of-transformer-based-llms-limitation)
+    - [Intrinsic Limitation of Parametric knowledge storage](#intrinsic-limitation-of-parametric-knowledge-storage)
+      - [Recreation of training data and inference of implicit information](#recreation-of-training-data-and-inference-of-implicit-information)
+      - [Exhaustive listing of knowledge \& their confidence level](#exhaustive-listing-of-knowledge--their-confidence-level)
+      - [Modification of knowledge](#modification-of-knowledge)
+      - [Sharing knowledge](#sharing-knowledge)
+      - [Conflict in training corpora](#conflict-in-training-corpora)
+      - [Redemption: Retrieval Augmented Generation](#redemption-retrieval-augmented-generation)
+    - [Limitation of current LLM training paradigm](#limitation-of-current-llm-training-paradigm)
+      - [Issue with current LLM training paradigm](#issue-with-current-llm-training-paradigm)
+      - [Existing approaches to filter training data](#existing-approaches-to-filter-training-data)
+      - [Information Source Grounding](#information-source-grounding)
+  - [Unexpected Normativity](#unexpected-normativity)
+    - [Two types of normative value enforcement](#two-types-of-normative-value-enforcement)
+    - [DPO, RLHF, and Type 2 Normative Value Enforcement](#dpo-rlhf-and-type-2-normative-value-enforcement)
+  - [Experiment: Verifying Existence of Unexpected Normativity](#experiment-verifying-existence-of-unexpected-normativity)
+    - [Data Generation](#data-generation)
+    - [Summarization Generation](#summarization-generation)
+    - [Evaluation](#evaluation)
+      - [Potential result Analysis](#potential-result-analysis)
+    - [Potential Further Analysis](#potential-further-analysis)
+  - [Proposal: Separation of Concern between Evaluation and Operation](#proposal-separation-of-concern-between-evaluation-and-operation)
+  - [Appendix](#appendix)
+    - [Json Schema For Summarization Response Example](#json-schema-for-summarization-response-example)
+    - [Additional Question](#additional-question)
+  - [Formalization of Problem: Observation based Value System deduction](#formalization-of-problem-observation-based-value-system-deduction)
 ## Introduction
 This "paper" performs an analysis of the limitation of current LLM structure and training paradigm, proposes the hypothesis that these limitation lead to unexpected normativity in LLM's behavior, and conducts an experiment to verify the hypothesis. 
+
+It should be intuitive that when we train LLM with methods like DPO and RLHF, we are training LLM to reject immoral request and align with human normative preference. But existing training methods does not distingush between task type when performing such normative preference enforcement. This leads to unexpected normativity in some tasks such as text summarization, where additional normative preference is undesirable. This paper examines this phenomenon, proposes a hypothesis for why this is happening, and conducts an experiment to verify the hypothesis, and eventually proposes a potential solution to the problem.
 
 ## Analysis of transformer-based LLM's Limitation
 ### Intrinsic Limitation of Parametric knowledge storage
