@@ -5,6 +5,9 @@
 > This is ongoing research, and the document is not yet complete.
 
 
+How does LLM actually store its evaluation mechanism?
+> Neural Network is not a computationally efficient way of storing and quering value system.
+
 Index
 - [Test for Unexpected Normativity in LLM](#test-for-unexpected-normativity-in-llm)
   - [Introduction](#introduction)
@@ -93,7 +96,7 @@ In short, **grounding LLM in real world observation** is an important step towar
 #### Existing approaches to filter training data
 Many empirical studies such as **Phi-1.5's "Textbooks are all you need"** [[https://arxiv.org/abs/2306.11644]] has shed light on the impact that **"high quality" training data** has on LLM's performance. 
 ... Need more research on other existing approaches.
-This proposal would mainly focuse on another approach: directly grounding knowledge in observation data, as it also addresses the third issue mentioned above. It can be used in combination with the previously mentioned approaches.
+This proposal would mainly focus on another approach: directly grounding knowledge in observation data, as it also addresses the third issue mentioned above. It can be used in combination with the previously mentioned approaches.
 
 #### Information Source Grounding
 With the recent trend of **Edge AI devices** such as Meta's **Ray-Ban Meta Smart Glasses** and **Limitless pendant**, it is becoming increasingly viable to perform **observation data collection at scale**, which would then inturn be used to augment training data.
@@ -175,6 +178,9 @@ Again, no matter what the result is, additional testing using other paradigms is
 Separation of concern between evaluation and operation can help address this issue.
 
 ## Proposal: Separation of Concern between Evaluation and Operation
+There are two main approaches to addressing unexpected normativity:
+1. Training model's value alignment on a more fine-grained training process. Similar to how [FLASK: FINE-GRAINED LANGUAGE MODEL EVALUATION BASED ON ALIGNMENT SKILL SETS](https://arxiv.org/pdf/2307.10928) does regarding the fine-tuning of instruction following training, a similar schema can be created for the training for value alignment in LLM, by providing different evaluation schema for labelers on different query types, or by introducing an additional axis of evaluation regarding whether the normative value application/enforcement is appropriate.
+2. 
 (would be part of my future research work in IKGD)
 
 
